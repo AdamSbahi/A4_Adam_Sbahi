@@ -4,78 +4,34 @@
 #include <iostream>
 #include <string>
 
-using namespace std;
-
-//Reverse for int
-void reverse_array(int* arr, int n)
+//Reverse function
+template <typename T>
+void reverse_array(T* arr, int n)
 {
     int i = 0;
-    int j = n-1;
-    
-    while (i < j){
-        {
-            int placeHolder = arr[i];
-            arr[i] = arr[j];
-            arr[j] = placeHolder;
-            i++;
-            j--;
-        }
+    int j = n - 1;
 
+    while (i < j)
+    {
+        T placeHolder = arr[i];
+        arr[i] = arr[j];
+        arr[j] = placeHolder;
+        i++;
+        j--;
     }
 }
 
-//Reverse for double
-void reverse_array(double* arr, int n)
+//Printing the array reversed
+template <typename T>
+void print_array(const T* arr, int n)
 {
-    int i = 0;
-    int j = n-1;
-    
-    while (i < j){
-        {
-            double placeHolder = arr[i];
-            arr[i] = arr[j];
-            arr[j] = placeHolder;
-            i++;
-            j--;
-        }
-
+    std::cout << "[";
+    for (int i = 0; i < n; i++)
+    {
+        std::cout << arr[i];
+        if (i < n - 1) std::cout << ", ";
     }
-}
-
-//Reverse for char
-void reverse_array(char* arr, int n)
-{
-    int i = 0;
-    int j = n-1;
-    
-    while (i < j){
-        {
-            char placeHolder = arr[i];
-            arr[i] = arr[j];
-            arr[j] = placeHolder;
-            i++;
-            j--;
-        }
-
-    }
-}
-
-//Reverse for string
-void reverse_array(string* arr, int n)
-{
-    int i = 0;
-    int j = n-1;
-    
-    while (i < j){
-        {
-            string placeHolder = arr[i];
-            arr[i] = arr[j];
-            arr[j] = placeHolder;
-            i++;
-            j--;
-        }
-
-    }
+    std::cout << "]\n";
 }
 
 #endif

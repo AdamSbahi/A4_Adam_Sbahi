@@ -9,7 +9,7 @@
 #include <cstring>   // strlen, strcmp
 #include <string>
 
-// Helper: compare arrays of any type
+//Compare function
 template <typename T>
 bool arrays_equal(const T* a, const T* b, int n)
 {
@@ -20,7 +20,7 @@ bool arrays_equal(const T* a, const T* b, int n)
     return true;
 }
 
-TEST_CASE("int: reverses even-length array correctly")
+TEST_CASE("int: reverses even array")
 {
     int a[] = {1, 2, 3, 4};
     int expected[] = {4, 3, 2, 1};
@@ -30,7 +30,7 @@ TEST_CASE("int: reverses even-length array correctly")
     REQUIRE(arrays_equal(a, expected, 4));
 }
 
-TEST_CASE("int: reverses odd-length array correctly")
+TEST_CASE("int: reverses odd array")
 {
     int a[] = {10, 20, 30, 40, 50};
     int expected[] = {50, 40, 30, 20, 10};
@@ -40,7 +40,7 @@ TEST_CASE("int: reverses odd-length array correctly")
     REQUIRE(arrays_equal(a, expected, 5));
 }
 
-TEST_CASE("double: reverses values including negatives and decimals")
+TEST_CASE("double: reverses negatives and decimals")
 {
     double a[] = {1.5, -2.25, 3.0, 4.75};
     double expected[] = {4.75, 3.0, -2.25, 1.5};
@@ -50,7 +50,7 @@ TEST_CASE("double: reverses values including negatives and decimals")
     REQUIRE(arrays_equal(a, expected, 4));
 }
 
-TEST_CASE("char array (not a C-string): reverses characters correctly")
+TEST_CASE("char: reverses characters")
 {
     char letters[] = {'E','C','E','3','5','1','4'};
     char expected[] = {'4','1','5','3','E','C','E'};
@@ -60,7 +60,7 @@ TEST_CASE("char array (not a C-string): reverses characters correctly")
     REQUIRE(arrays_equal(letters, expected, 7));
 }
 
-TEST_CASE("std::string: reverses array of strings correctly")
+TEST_CASE("string: reverses strings")
 {
     std::string a[] = {"ECE", "3514", "templates"};
     std::string expected[] = {"templates", "3514", "ECE"};
@@ -70,7 +70,7 @@ TEST_CASE("std::string: reverses array of strings correctly")
     REQUIRE(arrays_equal(a, expected, 3));
 }
 
-TEST_CASE("C-string: reverses only characters (does not move the null terminator)")
+TEST_CASE("C-string: reverses only characters")
 {
     char word[] = "hello";
 
@@ -80,7 +80,7 @@ TEST_CASE("C-string: reverses only characters (does not move the null terminator
     REQUIRE(std::strcmp(word, "olleh") == 0);
 }
 
-TEST_CASE("Edge case: n = 0 does nothing and does not crash")
+TEST_CASE("n = 0 does nothing")
 {
     int a[] = {99, 100};
     int expected[] = {99, 100};
@@ -91,7 +91,7 @@ TEST_CASE("Edge case: n = 0 does nothing and does not crash")
     REQUIRE(arrays_equal(a, expected, 2));
 }
 
-TEST_CASE("Edge case: n = 1 does nothing")
+TEST_CASE("n = 1 does nothing")
 {
     int a[] = {42};
     int expected[] = {42};
@@ -101,7 +101,7 @@ TEST_CASE("Edge case: n = 1 does nothing")
     REQUIRE(arrays_equal(a, expected, 1));
 }
 
-TEST_CASE("Edge case: n = 2 swaps elements")
+TEST_CASE("n = 2 swaps elements")
 {
     char a[] = {'A', 'B'};
     char expected[] = {'B', 'A'};

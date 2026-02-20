@@ -1,8 +1,12 @@
+#include <iostream>
+#include <cstring>
+#include "reverse.hpp"
+
 //main.cpp
 int main() {
     // int[]
     int ai[]{1, 2, 3, 4};
-    int ni = // compute size of array
+    int ni = sizeof(ai) / sizeof(ai[0]); // compute size of array
     std::cout<<"ai: "; 
     print_array<int>(ai, ni);
     reverse_array<int>(ai, ni);
@@ -11,7 +15,7 @@ int main() {
 
     // double[]
     double ad[] = {1.5, 2.5, 3.5, 4.5};
-    int nd = // compute size of array
+    int nd = sizeof(ad) / sizeof(ad[0]);// compute size of array
     std::cout<<"ad: "; 
     print_array<double>(ad, nd);
     reverse_array<double>(ad, nd); 
@@ -20,7 +24,7 @@ int main() {
 
     // char[] (not a C-string)
     char letters[] = {'E','C','E','3','5', '1', '4'};
-    int nc = // compute size of array
+    int nc = sizeof(letters) / sizeof(letters[0]); // compute size of array
     std::cout<<"letters: "; 
     print_array<char>(letters, nc);
     reverse_array<char>(letters, nc);
@@ -30,7 +34,7 @@ int main() {
     // C-string: reverse only the characters, not the '\0'
     char word[] = "hello";
     std::cout << "cstr: " << word << "\n";
-    int nw = // compute size of string
+    int nw = std::strlen(word);// compute size of string
     reverse_array<char>(word, nw);
     std::cout << "cstr: " << word << "\n";
 

@@ -26,11 +26,16 @@ template <typename T>
 void print_array(const T* arr, int n)
 {
     std::cout << "[";
-    for (int i = 0; i < n; i++)
+
+    if (n > 0)
     {
-        std::cout << arr[i];
-        if (i < n - 1) std::cout << ", ";
+        std::cout << arr[0];
+        for (int i = 1; i < n; i++)
+        {
+            std::cout << ", " << arr[i];
+        }
     }
+
     std::cout << "]\n";
 }
 
